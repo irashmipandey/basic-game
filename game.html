@@ -3,11 +3,16 @@
 <head> 
     <title>My Game</title>
     <style>* 
-    { padding: 0; margin: 0;} 
-    canvas { background: black; 
+    {
+        padding: 0;
+        margin: 0
+        } 
+    canvas
+        {
+            background: black; 
     display: block; 
-    margin: 0 
-    auto;} 
+    margin: 0 auto;
+        } 
     </style>
 </head>
 <body>
@@ -35,7 +40,8 @@
     var brickOffsetTop = 30;
     var brickOffsetLeft = 30;
     var bricks = [];
-    for (var c=0; c<brickColumnCount; c++) {
+    for (var c=0; c<brickColumnCount; c++)
+    {
       bricks[c] = [];
       for (var r=0; r<brickRowCount; r++) {
         bricks[c][r] = { x: 0, y: 0, status: 1 };
@@ -45,7 +51,8 @@
     document.addEventListener("keydown", keyDownHandler, false);
     document.addEventListener("keyup" , keyUpHandler, false);
     function keyDownHandler(e) {
-      if ( e.keyCode == 39) {
+      if ( e.keyCode == 39) 
+      {
         rightpress = true;
       }
       else if ( e.keyCode == 37) {
@@ -110,22 +117,34 @@
         drawBall();
         drawPaddle();
         collisionDetection();
-        if ( x + dx < ballRadius || x + dx > canvas.width-ballRadius) {
-          dx = -dx;}
-        if( y + dy < ballRadius) {
-        dy = -dy;}
-        else if(y + dy > canvas.height-ballRadius) {
-        if(x > paddleposition && x < paddleposition + paddlew) {
-        dy = -dy;}
-        else {
+        if ( x + dx < ballRadius || x + dx > canvas.width-ballRadius)
+        {
+          dx = -dx;
+        }
+        if( y + dy < ballRadius)
+        {
+        dy = -dy;
+        }
+        else if(y + dy > canvas.height-ballRadius)
+        {
+        if(x > paddleposition && x < paddleposition + paddlew) 
+        {
+        dy = -dy;
+        }
+        else 
+        {
         alert("GAME OVER");
         document.location.reload();
-        clearInterval(interval);}
+        clearInterval(interval);
+        }
         }
         if(rightpress && paddleposition < canvas.width-paddlew) {
-          paddleposition += 7;}
-          else if (leftpress && paddleposition > 0) {
-          paddleposition -= 7;}
+          paddleposition += 7;
+        }
+          else if (leftpress && paddleposition > 0)
+          {
+          paddleposition -= 7;
+  }
           x += dx;
           y += dy;
         }
